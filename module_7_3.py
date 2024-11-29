@@ -27,7 +27,7 @@ class WordsFinder:
 
     def count(self, word: str) -> dict:
         all_words = self.get_all_words()
-        return {word: sum(map(lambda value: value.count(word.lower()), all_words.values()))}
+        return {key: value.count(word.lower()) for key, value in all_words.items()}
 
 
 finder2 = WordsFinder('test_file.txt')
