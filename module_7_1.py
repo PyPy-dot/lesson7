@@ -12,12 +12,12 @@ class Shop:
     __file_name = 'products.txt'
 
     def get_products(self) -> str:
-        with open(self.__file_name, 'r+', encoding='utf-8') as file:
+        with open(self.__file_name, 'r', encoding='utf-8') as file:
             return file.read()
 
     def add(self, *products) -> None:
         for product in products:
-            if product.name not in self.get_products():
+            if product.name not in self.get_products(): # Добавляет в файл __file_name каждый продукт из products, если его ещё нет в файле (по названию)
                 with open(self.__file_name, 'a', encoding='utf-8') as file:
                     file.write(str(product) + '\n')
             else:
